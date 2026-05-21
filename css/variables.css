@@ -1,0 +1,72 @@
+/* =============================================================
+   variables.css — tokens de design (cores, fontes, etc.)
+   Centraliza tudo que muda entre temas e o que é compartilhado.
+   ============================================================= */
+
+:root {
+  /* Tipografia */
+  --font-sans: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'Consolas', 'Courier New', monospace;
+
+  /* Espaçamento e raio */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+
+  /* Largura máxima de conteúdo */
+  --container: 1120px;
+
+  /* Curvas de animação */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: all 0.3s var(--ease);
+
+  /* ====== TEMA ESCURO (padrão) ======
+     Cores em formato HEX/RGBA. Os tokens "*-rgb" servem para
+     compor backgrounds translúcidos do efeito glassmorphism. */
+  --bg: #0b0f17;
+  --bg-elev: #111827;
+  --text: #e6edf6;
+  --text-muted: #9aa7bd;
+  --accent: #7cf3c4;          /* verde "terminal" */
+  --accent-strong: #34d399;
+  --border: rgba(255, 255, 255, 0.12);
+
+  /* RGB puros para usar em rgba() — cor base do "vidro" */
+  --glass-rgb: 17, 24, 39;          /* cor sólida por trás do blur */
+  --glass-alpha: 0.45;              /* opacidade do glass */
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  --glass-blur: 18px;
+
+  /* Gradiente decorativo do fundo */
+  --blob-1: #7cf3c4;
+  --blob-2: #6366f1;
+  --blob-3: #ec4899;
+}
+
+/* ====== TEMA CLARO ======
+   Aplicado quando o <html> recebe data-theme="light".
+   Mantemos contraste AA em texto sobre superfícies translúcidas. */
+:root[data-theme='light'] {
+  --bg: #f3f5fb;
+  --bg-elev: #ffffff;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --accent: #0d9488;
+  --accent-strong: #0f766e;
+  --border: rgba(15, 23, 42, 0.12);
+
+  --glass-rgb: 255, 255, 255;
+  --glass-alpha: 0.55;
+  --glass-border: rgba(15, 23, 42, 0.10);
+  --glass-shadow: 0 8px 32px rgba(15, 23, 42, 0.12);
+
+  --blob-1: #5eead4;
+  --blob-2: #818cf8;
+  --blob-3: #f472b6;
+}
