@@ -11,13 +11,6 @@
   const toggleBtn = document.getElementById('theme-toggle');
   const iconEl = toggleBtn?.querySelector('.theme-toggle__icon');
 
-  /* ---------- TEMA ----------
-     Estratégia:
-     1. Lê preferência salva no localStorage.
-     2. Se não houver, usa a preferência do sistema (prefers-color-scheme).
-     3. O atributo data-theme="light" no <html> ativa as variáveis claras
-        definidas em variables.css. Escuro é o padrão (sem atributo).
-  */
   const getInitialTheme = () => {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved === 'light' || saved === 'dark') return saved;
@@ -38,7 +31,6 @@
     }
   };
 
-  // Aplica imediatamente para evitar "flash" de tema errado
   applyTheme(getInitialTheme());
 
   toggleBtn?.addEventListener('click', () => {
@@ -47,9 +39,6 @@
     localStorage.setItem(STORAGE_KEY, next);
   });
 
-  /* ---------- REVEAL ON SCROLL ----------
-     IntersectionObserver é nativamente performático. Adicionamos a
-     classe .is-visible quando o elemento entra na viewport. */
   const revealEls = document.querySelectorAll('.reveal');
 
   if ('IntersectionObserver' in window) {
